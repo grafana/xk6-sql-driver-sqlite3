@@ -1,21 +1,20 @@
-# xk6-sql-driver-ramsql
+# xk6-sql-driver-sqlite3
 
-Database driver extension for [xk6-sql](https://github.com/grafana/xk6-sql) k6 extension to support RamSQL database.
+Database driver extension for [xk6-sql](https://github.com/grafana/xk6-sql) k6 extension to support SQLite v3 database.
 
 ## Example
 
 ```JavaScript file=examples/example.js
 import sql from "k6/x/sql";
-import driver from "k6/x/sql/driver/ramsql";
+import driver from "k6/x/sql/driver/sqlite3";
 
-const db = sql.open(driver, "test_db");
+const db = sql.open(driver, "./test.db");
 
 export function setup() {
-  db.exec(`CREATE TABLE IF NOT EXISTS namevalue (
-             id INTEGER PRIMARY KEY AUTOINCREMENT,
-             name VARCHAR NOT NULL,
-             value VARCHAR
-           );`);
+  db.exec(`CREATE TABLE IF NOT EXISTS keyvalues (
+           id integer PRIMARY KEY AUTOINCREMENT,
+           key varchar NOT NULL,
+           value varchar);`);
 }
 
 export function teardown() {
@@ -23,11 +22,11 @@ export function teardown() {
 }
 
 export default function () {
-  db.exec("INSERT INTO namevalue (name, value) VALUES('extension-name', 'xk6-foo');");
+  db.exec("INSERT INTO keyvalues (key, value) VALUES('plugin-name', 'k6-plugin-sql');");
 
-  let results = sql.query(db, "SELECT * FROM namevalue WHERE name = $1;", "extension-name");
+  let results = sql.query(db, "SELECT * FROM keyvalues WHERE key = $1;", "plugin-name");
   for (const row of results) {
-    console.log(`name: ${row.name}, value: ${row.value}`);
+    console.log(`key: ${row.key}, value: ${row.value}`);
   }
 }
 ```
@@ -46,9 +45,9 @@ Check the [xk6-sql documentation](https://github.com/grafana/xk6-sql) on how to 
 >
 > After creating the driver repository, remember the following:
 >
-> - replace `RamSQL` with the database name in:
+> - replace `SQLite v3` with the database name in:
 >   -  `README.md`
-> - replace `ramsql` with the database driver name in:
+> - replace `sqlite3` with the database driver name in:
 >   - `README.md`
 >   - `register.go`
 >   - `register_test.go`
