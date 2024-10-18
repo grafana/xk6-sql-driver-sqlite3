@@ -42,22 +42,19 @@ Since the sqlite3 driver uses a native shared library, the build requirements ar
 **Prerequisites**
 
 - [Go toolchain](https://go101.org/article/go-toolchain.html)
-- A build toolchain for your system that includes `gcc` or
-  another C compiler. On Debian and derivatives install the `build-essential`
-  package. On Windows you can use [tdm-gcc](https://jmeubank.github.io/tdm-gcc/).
-  Make sure that `gcc` is in your `PATH`.
+- A build toolchain for your system that includes `gcc` or  another C compiler. On Debian and derivatives install the `build-essential` package. On Windows you can use [tdm-gcc](https://jmeubank.github.io/tdm-gcc/). Make sure that `gcc` is in your `PATH`.
 - Git
 - Set `CGO_ENABLED=1` in the environment
 
 **Linux**
 
 ```bash
-CGO_ENABLED=1 xk6 build --with github.com/grafana/xk6-sql-driver-sqlite3 --with github.com/grafana/xk6-sql@latest
+CGO_ENABLED=1 xk6 build --with github.com/grafana/xk6-sql-driver-sqlite3@latest --with github.com/grafana/xk6-sql@latest
 ```
 
 **Windows**
 
 ```
 set CGO_ENABLED=1
-xk6 build --with github.com/grafana/xk6-sql-driver-sqlite3 --with github.com/grafana/xk6-sql@latest
+xk6 build --with github.com/grafana/xk6-sql-driver-sqlite3@latest --with github.com/grafana/xk6-sql@latest
 ```
