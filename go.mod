@@ -3,7 +3,7 @@ module github.com/grafana/xk6-sql-driver-sqlite3
 go 1.22
 
 require (
-	github.com/grafana/xk6-sql v0.5.0-alpha.4
+	github.com/grafana/xk6-sql v1.0.0
 	github.com/mattn/go-sqlite3 v1.14.24
 )
 
