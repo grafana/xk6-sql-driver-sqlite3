@@ -6,7 +6,6 @@ metadata:
   description: |
     xk6-sql driver extension for SQLite v3 database support
   annotations:
-    backstage.io/techdocs-ref: dir:.
     github.com/project-slug: grafana/xk6-sql-driver-sqlite3
 spec:
   type: library
