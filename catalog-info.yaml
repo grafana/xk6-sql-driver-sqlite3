@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: xk6-sql-driver-sqlite3
+  title: xk6-sql-driver-sqlite3
+  description: |
+    xk6-sql driver extension for SQLite v3 database support
+  annotations:
+    github.com/project-slug: grafana/xk6-sql-driver-sqlite3
+spec:
+  type: library
+  owner: group:default/k6-extensions
+  lifecycle: production
