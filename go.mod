@@ -4,7 +4,7 @@ go 1.25.0
 
 require (
 	github.com/grafana/xk6-sql v1.1.0
-	github.com/mattn/go-sqlite3 v1.14.42
+	github.com/mattn/go-sqlite3 v1.14.44
 )
 
 require (
