@@ -6,7 +6,7 @@ toolchain go1.25.14
 
 require (
 	github.com/grafana/xk6-sql v1.2.2
-	github.com/mattn/go-sqlite3 v1.14.49
+	github.com/mattn/go-sqlite3 v1.14.50
 )
 
 require (
