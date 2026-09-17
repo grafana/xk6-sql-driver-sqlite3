@@ -1,3 +1,4 @@
 /k6
 /k6.exe
 *test.db
+/.golangci.yml
